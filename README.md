@@ -1,7 +1,7 @@
 # CSC680-IOS-App-Dev-Project
 Final Project for CSC 680 Application Development for Mobile Devices 
 
-### Idea: Bad Finance Calculator 
+### Idea: Good Finance Bad Calculator 
  This calculator will do everything a loan calculator will do but on the cellphone. This idea stemmed from when I was buying a Car and was trying to find out my monthly payment. 
 
 ### Features for Loan Calculator: 
