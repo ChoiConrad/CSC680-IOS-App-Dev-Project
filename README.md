@@ -10,15 +10,12 @@ This application will be implementing the Worst UI.
 
 ### Rough UI of the Applications
 #![git] insert the png drawing in here.
-this is a visual on how it will work for Child Programming. 
-
-or
 
 // put the png of ui for auto loan calc here
 This is the Visual on how Auto Loan Calculator is. 
 
 
 ### How will this work: 
-Everything will be written in Swift and If there are any images that need to be done Will be hand drawn. 
+Everything will be written in Swift If there are any images that need to be done Will be hand drawn. 
 
 
