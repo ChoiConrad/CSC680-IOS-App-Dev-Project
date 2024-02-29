@@ -1,16 +1,13 @@
 # CSC680-IOS-App-Dev-Project
 Final Project for CSC 680 Application Development for Mobile Devices 
 
-### Idea #1: Child Programming
-My idea for my IOS Application is to teach children how to program. The idea stems from my nephew is already addicted to technology. People say that children are sponges when it comes to information. I want make an application where he will have some basic understanding. This is done by having him interact segments of code in the shape of blocks and the child will drag the blocks into correct locations. 
-
-or 
-
-### Idea #2: Auto Loan Calculator
+### Idea: Auto Loan Calculator
  This calculator will do everything a loan calculator will do but on the cellphone. This idea stemmed from when I was buying a Car and was trying to find out my monthly payment. 
 
 ### Features for Loan Calculator: 
-The features of this application is to calculate monthly payments, time remaining on payments, Total money spent with the APR and compare it to buying it outright. 
+The features of this application is to calculate monthly payments, time remaining on payments, Total money spent with the APR and compare it to buying it outright. However if a user wishes to have, for example certain monthly payment the app will offer how to achieve the certain monthly payments. the suggested payments will be structured suggested to least suggested in terms of suggested finance decisions. 
+This application will be implementing the Worst UI. 
+
 ### Rough UI of the Applications
 #![git] insert the png drawing in here.
 this is a visual on how it will work for Child Programming. 
