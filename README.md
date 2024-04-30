@@ -27,8 +27,11 @@ Everything will be written in Swift If there are any images that need to be done
 
 ### Must Haves: 
 -User shall be able to input information by tilting their phone ONLY.
+
 -If user is trying to tilt the phone for one input, the other inputs will change as well. 
+
 -user will be able to submit information and the number present on the screen.
+
 -Application will calculate the submited input and display different finance plan from most efficient to least. 
 
 ### Nice to Have: 
