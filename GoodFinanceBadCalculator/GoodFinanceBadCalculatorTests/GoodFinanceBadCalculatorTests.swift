@@ -1,36 +1,68 @@
-//
-//  GoodFinanceBadCalculatorTests.swift
-//  GoodFinanceBadCalculatorTests
-//
-//  Created by Conrad Choi on 5/5/24.
-//
-
 import XCTest
+import CoreMotion
 @testable import GoodFinanceBadCalculator
 
-final class GoodFinanceBadCalculatorTests: XCTestCase {
+class GoodFinanceBadCalculatorTests: XCTestCase {
+    var viewModel: BadCalcViewModel!
+    var mockMotionManager: MockCoreMotionManager!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        mockMotionManager = MockCoreMotionManager()
+        viewModel = BadCalcViewModel(motionManager: mockMotionManager)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        viewModel = nil
+        mockMotionManager = nil
+        try super.tearDownWithError()
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testGyroscopeResponse() {
+        // Simulate rotation data
+        mockMotionManager.simulateGyroData(rotationRate: CMRotationRate(x: 0, y: 1.0, z: 0))
+        
+        // Allow time for the asynchronous update
+        let expectation = XCTestExpectation(description: "Wait for loan amount update")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1.0)
+        
+        // Assert the loan amount increased
+        XCTAssertEqual(viewModel.loanAmount, 100, "Loan amount should increase by 100 when device is rotated to the right")
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testLoanCalculation() {
+        viewModel.loanAmount = 10000
+        viewModel.interestRate = 5.0
+        viewModel.loanTerm = 12
+        viewModel.downPayment = 0
+
+        viewModel.calculateMonthlyPayment()
+
+        let principal = viewModel.loanAmount - viewModel.downPayment
+        let annualInterestRate = viewModel.interestRate / 100
+        let monthlyInterestRate = annualInterestRate / 12
+        let numberOfPayments = Double(viewModel.loanTerm)
+        let expectedMonthlyPayment: Double
+
+        if monthlyInterestRate != 0 {
+            let part1 = pow((1 + monthlyInterestRate), numberOfPayments)
+            expectedMonthlyPayment = principal * ((monthlyInterestRate * part1) / (part1 - 1))
+        } else {
+            expectedMonthlyPayment = principal / numberOfPayments
+        }
+
+        XCTAssertEqual(viewModel.monthlyPayment, String(format: "Monthly Payment: $%.2f", expectedMonthlyPayment), "Calculated monthly payment is incorrect.")
+    }
+
+    func testPerformanceLoanCalculation() {
+        measure {
+            viewModel.loanAmount = 20000
+            viewModel.interestRate = 7.5
+            viewModel.loanTerm = 24
+            viewModel.calculateMonthlyPayment()
         }
     }
-
 }
