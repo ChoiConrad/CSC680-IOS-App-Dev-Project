@@ -17,7 +17,7 @@ class GoodFinanceBadCalculatorTests: XCTestCase {
         mockMotionManager = nil
         try super.tearDownWithError()
     }
-
+///Testing the Gyroscope's response to make sure it works. 
     func testGyroscopeResponse() {
         // Simulate rotation data
         mockMotionManager.simulateGyroData(rotationRate: CMRotationRate(x: 0, y: 1.0, z: 0))
