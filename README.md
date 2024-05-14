@@ -33,5 +33,5 @@ Everything will be written in Swift.
 - Application will calculate the submited input and display different finance plan from most efficient to least. 
 
 
-###Problems faced developing the application 
+### Problems faced developing the application: 
 One problem that I faced was that I cannot test the application on a physical object. For me to test the application onto my phone, it required me to spend an additional 100 dollars for apple's certification. So to replace I had to make a unit test. 
