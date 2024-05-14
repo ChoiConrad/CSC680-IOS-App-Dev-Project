@@ -12,8 +12,8 @@ This application will be implementing gyroscope to input the user information. F
 The process for buying a vehicle is difficult, this app will achieve making the buying process and any financial advice given even more difficult to obtain. 
 
 
-### API for UI 
-The api that I will be using for the UI is called Core Motion https://developer.apple.com/documentation/coremotion this is to utilize the gyroscope or orientation of the iphone to set the number. 
+### API Used: 
+The api that I will be using is called Core Motion https://developer.apple.com/documentation/coremotion this is to utilize the gyroscope or orientation of the iphone to set the number. 
 
 
 ### How will this work: 
